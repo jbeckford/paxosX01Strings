@@ -5,7 +5,12 @@ public class App
 {
     public static void main( String[] args )
     {
-        new X01String("X0").displayPossibleValues();
-        new X01String("10X10X0").displayPossibleValues();
+        if(args == null || args.length == 0){
+            System.out.println("Error: No args provided.");
+        } else {
+            for (String arg : args) {
+                new X01String(arg).displayPossibleValues();
+            }
+        }
     }
 }

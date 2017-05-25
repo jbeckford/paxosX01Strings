@@ -7,11 +7,14 @@ import java.util.List;
  * Created by Jesus on 5/22/2017.
  */
 public class X01String {
-    List<CharIndexState> charIndexStates = new ArrayList<CharIndexState>();
+    private List<CharIndexState> charIndexStates = new ArrayList<CharIndexState>();
     private char [] toStringChars = null;
     private String toStringValue = null;
+    private String templateString = null;
 
     public X01String(String templateString){
+        this.templateString = templateString;
+
         if(templateString != null) {
             toStringChars = templateString.toCharArray();
 
@@ -58,9 +61,12 @@ public class X01String {
     }
 
     public void displayPossibleValues(){
+        System.out.printf("Template: %s\n", this.templateString);
+
         for(int i = 0; i < this.getPossibleStates(); i++){
             System.out.println( this.toString());
             this.increment();
         }
+        System.out.println();
     }
 }
